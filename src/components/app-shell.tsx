@@ -77,13 +77,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <SidebarMenu>
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.href}>
-                  <Link href={item.href} className="w-full">
+                  <Link href={item.href} legacyBehavior passHref>
                     <SidebarMenuButton
+                      asChild
                       isActive={pathname === item.href}
                       className="bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
                     >
-                      <item.icon className="h-5 w-5" />
-                      {item.label}
+                      <a>
+                        <item.icon className="h-5 w-5" />
+                        {item.label}
+                      </a>
                     </SidebarMenuButton>
                   </Link>
                 </SidebarMenuItem>
@@ -102,9 +105,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                     <SidebarMenuSub>
                         {componentItems.map((item) => (
                             <SidebarMenuSubItem key={item.href}>
-                                <Link href={item.href} className="w-full">
-                                    <SidebarMenuSubButton isActive={pathname === item.href}>
-                                        {item.label}
+                                <Link href={item.href} passHref legacyBehavior>
+                                    <SidebarMenuSubButton asChild isActive={pathname === item.href}>
+                                        <a>{item.label}</a>
                                     </SidebarMenuSubButton>
                                 </Link>
                             </SidebarMenuSubItem>
@@ -187,7 +190,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <span className="sr-only">Toggle notifications</span>
           </Button>
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 bg-background">
           {children}
         </main>
       </div>
