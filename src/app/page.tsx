@@ -1,186 +1,127 @@
-'use client';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
-import {
-  DollarSign,
-  LineChart,
-  ShoppingCart,
-  Users,
-} from 'lucide-react';
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
-
-const MOCK_ORDERS = [
-  {
-    order: 'ORD001',
-    customer: 'Liam Johnson',
-    email: 'liam@example.com',
-    type: 'Sale',
-    status: 'Fulfilled',
-    date: '2023-06-23',
-    amount: '$250.00',
-  },
-  {
-    order: 'ORD002',
-    customer: 'Olivia Smith',
-    email: 'olivia@example.com',
-    type: 'Refund',
-    status: 'Declined',
-    date: '2023-06-24',
-    amount: '$150.00',
-  },
-  {
-    order: 'ORD003',
-    customer: 'Noah Williams',
-    email: 'noah@example.com',
-    type: 'Subscription',
-    status: 'Fulfilled',
-    date: '2023-06-25',
-    amount: '$350.00',
-  },
-  {
-    order: 'ORD004',
-    customer: 'Emma Brown',
-    email: 'emma@example.com',
-    type: 'Sale',
-    status: 'Fulfilled',
-    date: '2023-06-26',
-    amount: '$450.00',
-  },
-  {
-    order: 'ORD005',
-    customer: 'James Jones',
-    email: 'james@example.com',
-    type: 'Sale',
-    status: 'Fulfilled',
-    date: '2023-06-27',
-    amount: '$550.00',
-  },
-];
-
-export default function DashboardPage() {
+export default function LandingPage() {
   return (
-    <>
-      <div className="flex items-center">
-        <h1 className="text-lg font-semibold md:text-2xl">Dashboard</h1>
-      </div>
-      <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Total Revenue
-            </CardTitle>
-            <DollarSign className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">$45,231.89</div>
-            <p className="text-xs text-muted-foreground">
-              +20.1% from last month
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Subscriptions
-            </CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">+2350</div>
-            <p className="text-xs text-muted-foreground">
-              +180.1% from last month
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Sales</CardTitle>
-            <ShoppingCart className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">+12,234</div>
-            <p className="text-xs text-muted-foreground">
-              +19% from last month
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Active Now</CardTitle>
-            <LineChart className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">+573</div>
-            <p className="text-xs text-muted-foreground">
-              +201 since last hour
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-      <Card>
-        <CardHeader>
-          <CardTitle>Recent Orders</CardTitle>
-          <CardDescription>
-            An overview of the most recent orders.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Customer</TableHead>
-                <TableHead className="hidden sm:table-cell">Type</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead className="hidden md:table-cell">Date</TableHead>
-                <TableHead className="text-right">Amount</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {MOCK_ORDERS.map((order) => (
-                <TableRow key={order.order}>
-                  <TableCell>
-                    <div className="font-medium">{order.customer}</div>
-                    <div className="hidden text-sm text-muted-foreground md:inline">
-                      {order.email}
-                    </div>
-                  </TableCell>
-                  <TableCell className="hidden sm:table-cell">{order.type}</TableCell>
-                  <TableCell>
-                    <Badge
-                      variant={
-                        order.status === 'Fulfilled'
-                          ? 'success'
-                          : 'destructive'
-                      }
-                    >
-                      {order.status}
-                    </Badge>
-                  </TableCell>
-                  <TableCell className="hidden md:table-cell">{order.date}</TableCell>
-                  <TableCell className="text-right">
-                    {order.amount}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
-    </>
+    <div className="flex flex-col min-h-screen">
+      <header className="container mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center">
+        <div className="flex items-center gap-2 font-semibold">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-6 w-6 text-primary"
+          >
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
+          </svg>
+          <span>Mazer</span>
+        </div>
+        <nav className="ml-auto flex items-center gap-4 sm:gap-6">
+          <Button variant="ghost" asChild>
+            <Link href="/dashboard">Login</Link>
+          </Button>
+          <Button asChild>
+            <Link href="/dashboard">
+              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </nav>
+      </header>
+      <main className="flex-1">
+        <section className="py-12 md:py-24 lg:py-32 xl:py-48 bg-background">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="space-y-2">
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                    Build Your Next App with Mazer
+                  </h1>
+                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                    A customizable dashboard built with Next.js and ShadCN UI.
+                    Modern, responsive, and easy to extend.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                  <Button size="lg" asChild>
+                    <Link href="/dashboard">Get Started</Link>
+                  </Button>
+                  <Button variant="outline" size="lg" asChild>
+                    <Link href="#">Learn More</Link>
+                  </Button>
+                </div>
+              </div>
+              <img
+                src="https://placehold.co/600x400.png"
+                alt="Hero"
+                data-ai-hint="dashboard preview"
+                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
+              />
+            </div>
+          </div>
+        </section>
+        <section id="features" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
+                  Key Features
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  Everything You Need
+                </h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Mazer comes packed with features to help you build your next project faster.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Components</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">A rich set of pre-built, customizable components using ShadCN UI.</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Theming</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">Easily customize the look and feel with CSS variables and themes.</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Responsive</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">Fully responsive design that looks great on any device.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+        <p className="text-xs text-muted-foreground">&copy; 2024 Mazer. All rights reserved.</p>
+        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+          <Link href="#" className="text-xs hover:underline underline-offset-4">
+            Terms of Service
+          </Link>
+          <Link href="#" className="text-xs hover:underline underline-offset-4">
+            Privacy
+          </Link>
+        </nav>
+      </footer>
+    </div>
   );
 }

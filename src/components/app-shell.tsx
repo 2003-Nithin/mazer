@@ -45,7 +45,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   const menuItems = [
-    { href: '/', label: 'Dashboard', icon: Home },
+    { href: '/dashboard', label: 'Dashboard', icon: Home },
     { href: '/orders', label: 'Orders', icon: ShoppingCart },
     { href: '/products', label: 'Products', icon: Package },
     { href: '/customers', label: 'Customers', icon: Users },
@@ -58,8 +58,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <Sidebar>
         <SidebarHeader>
           <div className="flex items-center gap-2">
-            <Package2 className="h-6 w-6 text-primary" />
-            <span className="text-lg font-semibold">Mazer Customizer</span>
+            <Link href="/" className="flex items-center gap-2">
+              <Package2 className="h-6 w-6 text-primary" />
+              <span className="text-lg font-semibold">Mazer Customizer</span>
+            </Link>
           </div>
         </SidebarHeader>
         <SidebarContent>
