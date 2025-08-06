@@ -541,8 +541,10 @@ const SidebarMenuButton = React.forwardRef<
     },
     ref
   ) => {
-    const Comp = asChild ? Slot : "button"
-    const { isMobile, state } = useSidebar()
+    const Comp = asChild ? Slot : "button";
+    const { isMobile, state } = useSidebar();
+    
+    const content = asChild ? children : <span className="flex w-full items-center gap-3">{children}</span>
 
     const button = (
       <Comp
@@ -553,10 +555,9 @@ const SidebarMenuButton = React.forwardRef<
         className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
         {...props}
       >
-        {children}
-        <span className={cn('flex-1 truncate', state === 'collapsed' && 'hidden')}>{props.title}</span>
+        {content}
       </Comp>
-    )
+    );
 
     if (!tooltip) {
       return button
@@ -704,14 +705,14 @@ const SidebarMenuSubItem = React.forwardRef<
 SidebarMenuSubItem.displayName = "SidebarMenuSubItem"
 
 const SidebarMenuSubButton = React.forwardRef<
-  HTMLAnchorElement,
-  React.ComponentProps<"a"> & {
-    asChild?: boolean
-    size?: "sm" | "md"
-    isActive?: boolean
+  HTMLButtonElement,
+  React.ComponentProps<"button"> & {
+    asChild?: boolean;
+    size?: "sm" | "md";
+    isActive?: boolean;
   }
 >(({ asChild = false, size = "md", isActive, className, ...props }, ref) => {
-  const Comp = asChild ? Slot : "a";
+  const Comp = asChild ? Slot : "button";
   const { state } = useSidebar();
 
   return (
@@ -725,13 +726,13 @@ const SidebarMenuSubButton = React.forwardRef<
         "data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground",
         size === "sm" && "text-xs",
         size === "md" && "text-sm",
-        state === 'collapsed' && "hidden",
+        state === "collapsed" && "hidden",
         className
       )}
       {...props}
     />
-  )
-})
+  );
+});
 SidebarMenuSubButton.displayName = "SidebarMenuSubButton"
 
 export {

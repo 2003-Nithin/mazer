@@ -77,16 +77,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <SidebarMenu>
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.href}>
-                  <Link href={item.href} legacyBehavior passHref>
+                  <Link href={item.href}>
                     <SidebarMenuButton
                       asChild
                       isActive={pathname === item.href}
                       className="bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
                     >
-                      <a>
+                      <span>
                         <item.icon className="h-5 w-5" />
                         {item.label}
-                      </a>
+                      </span>
                     </SidebarMenuButton>
                   </Link>
                 </SidebarMenuItem>
@@ -105,9 +105,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                     <SidebarMenuSub>
                         {componentItems.map((item) => (
                             <SidebarMenuSubItem key={item.href}>
-                                <Link href={item.href} passHref legacyBehavior>
+                                <Link href={item.href}>
                                     <SidebarMenuSubButton asChild isActive={pathname === item.href}>
-                                        <a>{item.label}</a>
+                                        <span>{item.label}</span>
                                     </SidebarMenuSubButton>
                                 </Link>
                             </SidebarMenuSubItem>
