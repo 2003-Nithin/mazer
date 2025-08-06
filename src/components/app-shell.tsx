@@ -37,7 +37,6 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarInset,
   SidebarProvider,
   SidebarTrigger,
   SidebarGroup,
@@ -79,14 +78,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 <SidebarMenuItem key={item.href}>
                   <Link href={item.href}>
                     <SidebarMenuButton
-                      asChild
                       isActive={pathname === item.href}
-                      className="bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
+                      className="bg-sidebar-primary text-sidebar-primary-foreground shadow-md hover:bg-sidebar-primary/90 data-[active=true]:bg-sidebar-primary data-[active=true]:text-sidebar-primary-foreground"
                     >
-                      <span>
                         <item.icon className="h-5 w-5" />
                         {item.label}
-                      </span>
                     </SidebarMenuButton>
                   </Link>
                 </SidebarMenuItem>
@@ -190,7 +186,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <span className="sr-only">Toggle notifications</span>
           </Button>
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 bg-background">
+        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           {children}
         </main>
       </div>

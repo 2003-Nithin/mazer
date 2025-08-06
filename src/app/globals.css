@@ -11,13 +11,13 @@
     --card-foreground: 220 9% 26%;
     --popover: 0 0% 100%;
     --popover-foreground: 220 9% 26%;
-    --primary: 180 84% 44%;
+    --primary: 246 84% 59%;
     --primary-foreground: 0 0% 98%;
     --secondary: 220 13% 91%;
     --secondary-foreground: 220 9% 26%;
     --muted: 220 13% 91%;
     --muted-foreground: 220 4% 46%;
-    --accent: 220 13% 91%;
+    --accent: 60 91% 55%;
     --accent-foreground: 220 9% 26%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -25,17 +25,17 @@
     --success-foreground: 0 0% 98%;
     --border: 220 13% 88%;
     --input: 220 13% 88%;
-    --ring: 180 84% 44%;
+    --ring: 246 84% 59%;
     --radius: 0.5rem;
     
     --sidebar-background: 220 15% 15%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 180 84% 44%;
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 220 9% 26%;
     --sidebar-accent: 220 14% 22%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 220 14% 22%;
-    --sidebar-ring: 180 84% 44%;
+    --sidebar-ring: 246 84% 59%;
 
     --chart-1: 220 70% 50%;
     --chart-2: 180 60% 45%;
@@ -51,13 +51,13 @@
     --card-foreground: 0 0% 98%;
     --popover: 220 15% 15%;
     --popover-foreground: 0 0% 98%;
-    --primary: 180 84% 44%;
+    --primary: 246 84% 59%;
     --primary-foreground: 0 0% 98%;
     --secondary: 220 14% 22%;
     --secondary-foreground: 0 0% 98%;
     --muted: 220 14% 22%;
     --muted-foreground: 220 5% 64%;
-    --accent: 220 14% 22%;
+    --accent: 60 91% 55%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -65,16 +65,16 @@
     --success-foreground: 0 0% 9%;
     --border: 220 14% 22%;
     --input: 220 14% 22%;
-    --ring: 180 84% 44%;
+    --ring: 246 84% 59%;
 
     --sidebar-background: 220 14% 12%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 180 84% 44%;
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 220 9% 26%;
     --sidebar-accent: 220 14% 22%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 220 14% 22%;
-    --sidebar-ring: 180 84% 44%;
+    --sidebar-ring: 246 84% 59%;
 
     --chart-1: 220 70% 50%;
     --chart-2: 180 60% 45%;
@@ -92,9 +92,9 @@
     @apply bg-background text-foreground;
   }
   main {
-      background-color: hsl(var(--background));
+      background-color: hsl(var(--accent));
   }
   .dark main {
-      background-color: hsl(var(--background));
+      background-color: hsl(var(--accent));
   }
 }
