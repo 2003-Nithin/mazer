@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
+import { AppShell } from '@/components/app-shell';
 
 export const metadata: Metadata = {
   title: 'Mazer Customizer',
@@ -27,7 +28,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AppShell>
+            {children}
+          </AppShell>
           <Toaster />
         </ThemeProvider>
       </body>
