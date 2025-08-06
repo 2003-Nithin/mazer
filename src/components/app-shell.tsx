@@ -48,12 +48,9 @@ import {
 } from '@/components/ui/sidebar';
 import { ThemeToggle } from '@/components/theme-toggle';
 import * as React from 'react';
-import { useTheme } from 'next-themes';
-import { Switch } from '@/components/ui/switch';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
 
   const menuItems = [
     { href: '/dashboard', label: 'Dashboard', icon: LayoutGrid },
@@ -70,15 +67,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2">
               <Package2 className="h-8 w-8 text-primary" />
+              <span className="text-lg font-semibold text-sidebar-foreground group-data-[state=collapsed]:hidden">Mazer</span>
             </Link>
-            <div className="flex items-center gap-2">
-                <Sun className="h-5 w-5" />
-                <Switch 
-                  checked={theme === 'dark'}
-                  onCheckedChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                />
-                <Moon className="h-5 w-5" />
-            </div>
           </div>
         </SidebarHeader>
         <SidebarContent>
@@ -154,7 +144,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                   <AvatarImage src="https://placehold.co/100x100.png" alt="User" data-ai-hint="profile picture" />
                   <AvatarFallback>JD</AvatarFallback>
                 </Avatar>
-                <div className="text-left">
+                <div className="text-left group-data-[state=collapsed]:hidden">
                   <p className="font-semibold text-sm">John Doe</p>
                   <p className="text-xs text-muted-foreground">
                     john.doe@email.com
@@ -177,7 +167,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </SidebarFooter>
       </Sidebar>
       <div className="flex flex-col flex-1">
-        <header className="flex h-14 items-center gap-4 bg-background px-4 lg:h-[60px] lg:px-6 sticky top-0 z-30">
+        <header className="flex h-14 items-center gap-4 border-b bg-background px-4 lg:h-[60px] lg:px-6 sticky top-0 z-30">
           <SidebarTrigger className="md:hidden" />
           <div className="w-full flex-1">
             <form>
@@ -191,12 +181,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               </div>
             </form>
           </div>
+           <ThemeToggle />
           <Button variant="outline" size="icon" className="h-9 w-9">
             <Bell className="h-4 w-4" />
             <span className="sr-only">Toggle notifications</span>
           </Button>
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 bg-yellow-300">
+        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           {children}
         </main>
       </div>

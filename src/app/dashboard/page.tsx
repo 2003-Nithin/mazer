@@ -170,7 +170,7 @@ export default function DashboardPage() {
         </Card>
       </div>
        <footer className="text-center text-sm text-muted-foreground mt-auto pt-6">
-          2023 &copy; Mazer by <a href="#" className="font-semibold">Saugi</a>
+          2024 &copy; Mazer by <a href="#" className="font-semibold">You</a>
         </footer>
     </>
   );
